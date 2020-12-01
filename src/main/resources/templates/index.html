@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Central Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-2">
+    <div sec:authorize="isAuthenticated()">
+        Welcome&nbsp;<span sec:authentication="name"></span>
+        &nbsp;
+        <span sec:authentication="principal.authorities"></span>
+        <form th:action="@{/logout}" method post>
+            <input type="submit" class="btn btn-primary" value="Logout">
+        </form>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${bookList}" class="container my-5">
+                <p class="my-5">
+                    <a href="/new_book" class="btn btn-primary">
+                        <i class="fas fa-user-plus mr-2"></i>New Book</a>
+                    <a href="/new_author" class="btn btn-primary">
+                        <i class="fas fa-user-plus mr-2"></i>New Author</a>
+                    <a href="/new_publisher" class="btn btn-primary">
+                        <i class="fas fa-user-plus mr-2"></i>New Publisher</a>
+                </p>
+                <p>
+                    <form th:action="@{/search}">
+                        <div class="form-group col-md-8">
+                            <input type="text" th:value="${keyword}" class="form-control" placeholder="Search..." required name="keyword">
+                            <input type="submit" class="btn btn-primary" value=" Search ">
+                            <input type="button" class="btn btn-primary" value=" Clear Filter " onclick="clearFilter()">
+                        </div>
+                    </form>
+                </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div th:case="*">
+                            <table class="table table-striped table-responsive-md">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Sub Name</th>
+                                    <th>Author</th>
+                                    <th>Publisher</th>
+                                    <th>ISBN</th>
+                                    <th>Details</th>
+                                    <th sec:authorize="hasAnyAuthority('ADMIN','MANAGER')">Edit</th>
+                                    <th sec:authorize="hasAnyAuthority('MANAGER')">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="book:${bookList}">
+                                    <td th:text="${book.name}">Name</td>
+                                    <td th:text="${book.subName}">Sub Name</td>
+                                    <td th:text="${book.author.name}">Author</td>
+                                    <td th:text="${book.publisher.name}">Publisher</td>
+                                    <td th:text="${book.isbn}" style="white-space: nowrap;">ISBN</td>
+                                    <td>
+                                        <a th:href="@{/details/{id}(id=${book.id})}" class="btn btn-primary">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                    </td>
+                                    <td sec:authorize="hasAnyAuthority('ADMIN','MANAGER')">
+                                        <a th:href="@{/edit_book_page/{id}(id=${book.id})}" class="btn btn-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td sec:authorize="hasAnyAuthority('MANAGER')">
+                                        <a th:href="@{/delete_book/{id}(id=${book.id})}" class="btn btn-primary">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function clearFilter(){
+        window.location='/';
+    }
+</script>
+</body>
+</html>
