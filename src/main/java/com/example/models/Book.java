@@ -21,7 +21,6 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Author author;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Publisher publisher;
 
