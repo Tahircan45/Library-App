@@ -4,6 +4,7 @@
 Uygulama Github üzerinden bilgisayarımıza indirdikten sonra Maven ile bir "*executable jar*" dosyası oluşturup bu dosyayı çalıştırabiliriz. Bunun için öncelikle terminal ile proje klasörünün içindeyken `mvn package` komutunu çalıştırıyoruz. Daha sonra oluşan `target` klasörüne girip `java -jar Library-App-0.0.1-SNAPSHOT.jar` komutu ile jar dosyamızı çalıştırabiliriz. Uygulamaya bağlanmak için `http://localhost:8080/` adresini kullanabiliriz.Sisteme giriş için gerekli kullanıcı adı ve şifre bilgilere aşağıdaki **Yetkilendirme ve Kimliklendirme** kısmında verilmiştir.
 
 **Yetkilendirme ve Kimliklendirme**
+
 Bu uygulama için 3 adet rol tanımlanmıştır ve veri tabanına varsayılan olarak 3 tane kullanıcı eklenerek rolleri tanımlanmıştır. Tanımlı roller ve yetkileri aşağıdaki listede verilmiştir.
 
  1. User: **Kitapları listeleme**, **arama yapma** ve **detayları görüntüleme**.
@@ -11,6 +12,7 @@ Bu uygulama için 3 adet rol tanımlanmıştır ve veri tabanına varsayılan ol
  3. Manager: Admin rolüne ek olarak  var olan **kayıtları silme**
 
 Roller ve kayıtlı kullanıcılar
+
 | Rol | User | Admin |Manager|
 |--|--|--|--|
 | Kullanıcı Adı |  user1| admin |manager|
