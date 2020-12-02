@@ -27,9 +27,9 @@
                 <p class="my-4" align="center">
                     <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" href="/new_book" class="btn btn-success">
                         <i class="fas fa-book-open mr-2"></i></i>New Book</a>
-                    <a sec:authorize="hasAnyAuthority('MANAGER')"href="/new_author" class="btn btn-success">
+                    <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')"href="/new_author" class="btn btn-success">
                         <i class="fas fa-user-plus mr-2"></i>New Author</a>
-                    <a sec:authorize="hasAnyAuthority('MANAGER')"href="/new_publisher" class="btn btn-success">
+                    <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')"href="/new_publisher" class="btn btn-success">
                         <i class="fas fa-store-alt mr-2"></i></i>New Publisher</a>
                 </p>
                 <p>
