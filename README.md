@@ -11,24 +11,28 @@ Uygulama Github üzerinden bilgisayarımıza indirdikten sonra Maven ile bir "*e
 
 **Kullanılan Teknolojiler**
 
- 6. Spring Web (Yönlendirmelerin ve İsteklerin yerine getirilmesi)
- 7. Spring Security (Yetkilendirme ve Kimliklendirme)
- 8. Spring Data JPA (Veri tabanı işlemleri)
- 9. H2 Database (Projenin yerel bir veri tabanına bağımlı olmaması için gömülü veri tabanı)
- 10. Thymeleaf (Görünüm katmanı)
+ 1. Spring Web (Yönlendirmelerin ve İsteklerin yerine getirilmesi)
+ 2. Spring Security (Yetkilendirme ve Kimliklendirme)
+ 3. Spring Data JPA (Veri tabanı işlemleri)
+ 4. H2 Database (Projenin yerel bir veri tabanına bağımlı olmaması için gömülü veri tabanı)
+ 5. Thymeleaf (Görünüm katmanı)
 
 **Yetkilendirme ve Kimliklendirme**
 Bu uygulama için 3 adet rol tanımlanmıştır ve veri tabanına varsayılan olarak 3 tane kullanıcı eklenerek rolleri tanımlanmıştır. Tanımlı roller ve yetkileri aşağıdaki listede verilmiştir.
 
- 1.User: **Kitapları listeleme**, **arama yapma** ve **detayları görüntüleme**.
- 2.Admin: User rolüne ek olarak **yeni kitap** ,**yeni yazar**, **yeni yayınevi ekleme** ve **kitapları düzenleme**.
- 3.Manager: Admin rolüne ek olarak  var olan **kayıtları silme**
+ 1. User: **Kitapları listeleme**, **arama yapma** ve **detayları görüntüleme**.
+ 2. Admin: User rolüne ek olarak **yeni kitap** ,**yeni yazar**, **yeni yayınevi ekleme** ve **kitapları düzenleme**.
+ 3. Manager: Admin rolüne ek olarak  var olan **kayıtları silme**
 
 Roller ve kayıtlı kullanıcılar
 | Rol | User | Admin |Manager|
 |--|--|--|--|
 | Kullanıcı Adı |  user1| admin |manager|
 | Şifre |  user1| admin |manager|
+
+
+
+
 
 
 
