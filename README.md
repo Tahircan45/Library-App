@@ -1,6 +1,7 @@
 # Library-App
 **Uygulamanın Kurulması ve Çalıştırılması**
-Uygulama Github üzerinden bilgisayarımıza indirdikten sonra Maven ile bir "*executable jar*" dosyası oluşturup bu dosyayı çalıştırabiliriz. Bunun için öncelikle terminal ile proje klasörünün içindeyken `mvn package` komutunu çalıştırıyoruz. Daha sonra oluşan `target` klasörüne girip `java -jar Library-App-0.0.1-SNAPSHOT.jar` komutu ile jar dosyamızı çalıştırabiliriz. Uygulamaya bağlanmak için `http://localhost:8080/` adresini kullanabiliriz.
+
+Uygulama Github üzerinden bilgisayarımıza indirdikten sonra Maven ile bir "*executable jar*" dosyası oluşturup bu dosyayı çalıştırabiliriz. Bunun için öncelikle terminal ile proje klasörünün içindeyken `mvn package` komutunu çalıştırıyoruz. Daha sonra oluşan `target` klasörüne girip `java -jar Library-App-0.0.1-SNAPSHOT.jar` komutu ile jar dosyamızı çalıştırabiliriz. Uygulamaya bağlanmak için `http://localhost:8080/` adresini kullanabiliriz.Sisteme giriş için gerekli kullanıcı adı ve şifre bilgilere aşağıdaki **Yetkilendirme ve Kimliklendirme** kısmında verilmiştir.
 
 **Yetkilendirme ve Kimliklendirme**
 Bu uygulama için 3 adet rol tanımlanmıştır ve veri tabanına varsayılan olarak 3 tane kullanıcı eklenerek rolleri tanımlanmıştır. Tanımlı roller ve yetkileri aşağıdaki listede verilmiştir.
@@ -14,6 +15,8 @@ Roller ve kayıtlı kullanıcılar
 |--|--|--|--|
 | Kullanıcı Adı |  user1| admin |manager|
 | Şifre |  user1| admin |manager|
+
+
 **Uygulamanın İşlevleri**
 
  1. Yeni yazar ekleme
@@ -29,6 +32,11 @@ Roller ve kayıtlı kullanıcılar
  3. Spring Data JPA (Veri tabanı işlemleri)
  4. H2 Database (Projenin yerel bir veri tabanına bağımlı olmaması için gömülü veri tabanı)
  5. Thymeleaf (Görünüm katmanı)
+
+
+
+
+
 
 
 
