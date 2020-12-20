@@ -12,7 +12,6 @@ import java.util.Set;
 @Table(name = "user")
 @Getter
 @Setter
-@ToString
 public class User {
     @Id
     @Column(name = "id")

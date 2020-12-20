@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Table(name = "role")
 @Getter
 @Setter
-@ToString
 public class Role {
     @Id
     @Column(name = "id")
