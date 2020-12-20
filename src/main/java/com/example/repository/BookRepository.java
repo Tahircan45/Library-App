@@ -14,7 +14,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             + "OR lower(b.isbn) LIKE CONCAT('%', lower(?1), '%') "
             + "OR lower(b.serName) LIKE CONCAT('%', lower(?1), '%')"
             + "OR lower(a.name) LIKE CONCAT('%', lower(?1), '%')")
-
     public List<Book> findAll(@Param("keyword")String keyword);
 }
 
