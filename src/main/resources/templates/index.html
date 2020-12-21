@@ -2,50 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Central Library</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<head th:replace="fragments :: html_head">
 </head>
 
 <body>
 <div class="container my-2">
-    <div sec:authorize="isAuthenticated()" align="right">
-        Welcome&nbsp;<span sec:authentication="name"></span>
-        &nbsp;
-        <span sec:authentication="principal.authorities"></span>
-        <form th:action="@{/logout}" method post>
-            <input type="submit" class="btn btn-danger  my-3" value="Logout">
-        </form>
-    </div>
+    <div th:replace="fragments :: login_status"></div>
     <div class="card">
         <div class="card-body">
+            <div th:replace="fragments :: top_button_bar"></div>
+            <div th:replace="fragments :: search_bar"></div>
+
             <div th:switch="${bookList}" class="container">
-                <p class="my-4" align="center">
-                    <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" href="/new_book" class="btn btn-success">
-                        <i class="fas fa-book-open mr-2"></i></i>New Book</a>
-                    <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')"href="/new_author" class="btn btn-success">
-                        <i class="fas fa-user-plus mr-2"></i>New Author</a>
-                    <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')"href="/new_publisher" class="btn btn-success">
-                        <i class="fas fa-store-alt mr-2"></i></i>New Publisher</a>
-                </p>
-                <p>
-                    <form th:action="@{/search}" align="center">
-                        <div class="input-group md-form form-sm form-2 pl-0">
-                            <input type="text" th:value="${keyword}"  placeholder="Search..." required name="keyword" class="form-control my-0 py-1 red-border" aria-label="Search" >
-                            <div class="input-group-append">
-                            <span class="input-group-text red lighten-3" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
-                        </div>
-                         </div>
-                        <div class="form-group mt-3 mb-4">
-                            <input type="submit" class="btn btn-primary" value=" Search ">
-                            <input type="button" class="btn btn-primary" value=" Clear Filter " onclick="clearFilter()">
-                        </div>
-                    </form>
-                </p>
                 <div class="row">
                     <div class="col-md-12">
                         <div th:case="*">
