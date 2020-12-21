@@ -35,6 +35,7 @@ Roller ve kayıtlı kullanıcılar
  4. H2 Database (Projenin yerel bir veri tabanına bağımlı olmaması için gömülü veri tabanı)
  5. Thymeleaf (Görünüm katmanı)
 
+![Anasayfa](https://i.ibb.co/DL6Jt1R/Library-App-img.jpg" )
 
 
 
