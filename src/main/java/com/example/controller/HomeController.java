@@ -34,12 +34,6 @@ public class HomeController {
         model.addAttribute("keyword",keyword);
         return "index";
     }
-    @RequestMapping("/details/{id}")
-    public ModelAndView showDetailsPage(@PathVariable(name = "id") long id){
-        ModelAndView mav=new ModelAndView("details");
-        mav.addObject("book",bookService.get(id));
-        return mav;
-    }
     @GetMapping("/403")
     public String error403(){
         return "403";

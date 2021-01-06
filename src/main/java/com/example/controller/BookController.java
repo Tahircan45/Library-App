@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@RequestMapping("/book")
 public class BookController {
     @Autowired
     private BookService bookService;
@@ -25,7 +26,7 @@ public class BookController {
     private PublisherService publisherService;
     @Autowired
     private AuthorService authorService;
-    @RequestMapping("/new_book")
+    @RequestMapping("/create")
     public String showNewBookForm(Model model){
         Book book=new Book();
         List<Author> authors=authorService.listAll();
@@ -36,12 +37,12 @@ public class BookController {
 
         return "create_book";
     }
-    @RequestMapping(value = "/create_book",method = RequestMethod.POST)
+    @RequestMapping(value = "/create_confirm",method = RequestMethod.POST)
     public String createBook(@ModelAttribute("book") Book book){
         bookService.save(book);
         return "redirect:/";
     }
-    @RequestMapping("/edit_book_page/{id}")
+    @RequestMapping("/edit/{id}")
     public ModelAndView showBookEditForm(@PathVariable(name = "id") long id){
         List<Author> authors=authorService.listAll();
         List<Publisher> publishers=publisherService.listAll();
@@ -52,12 +53,18 @@ public class BookController {
         mav.addObject("publishers",publishers);
         return mav;
     }
-    @RequestMapping("/edit_book")
+    @RequestMapping("/edit_confirm")
     public String edit_book(@ModelAttribute(value = "book") Book book){
         bookService.save(book);
         return "redirect:/";
     }
-    @RequestMapping("/delete_book/{id}")
+    @RequestMapping("/details/{id}")
+    public ModelAndView showDetailsPage(@PathVariable(name = "id") long id){
+        ModelAndView mav=new ModelAndView("details");
+        mav.addObject("book",bookService.get(id));
+        return mav;
+    }
+    @RequestMapping("/delete/{id}")
     public String deleteBook(@PathVariable(name = "id") long id){
         bookService.delete(id);
         return "redirect:/";

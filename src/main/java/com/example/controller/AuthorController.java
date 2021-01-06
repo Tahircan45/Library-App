@@ -11,31 +11,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AuthorAndPublisherController {
-    @Autowired
-    private PublisherService publisherService;
+@RequestMapping("author")
+public class AuthorController {
+
     @Autowired
     private AuthorService authorService;
-    @RequestMapping("/new_author")
+
+    @RequestMapping("/create")
     public String showAuthorAddFrom(Model model){
         Author author=new Author();
         model.addAttribute("author",author);
         return "create_author";
     }
-    @RequestMapping("/create_author")
+    @RequestMapping("/create_confirm")
     public String createAuthor(@ModelAttribute("author") Author author){
         authorService.save(author);
-        return "redirect:/";
-    }
-    @RequestMapping("/new_publisher")
-    public String showPublisherAddFrom(Model model){
-        Publisher publisher=new Publisher();
-        model.addAttribute("publisher",publisher);
-        return "create_publisher";
-    }
-    @RequestMapping("/create_publisher")
-    public String createPublisher(@ModelAttribute("publisher") Publisher publisher){
-        publisherService.save(publisher);
         return "redirect:/";
     }
 }
