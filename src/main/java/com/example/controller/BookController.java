@@ -26,6 +26,7 @@ public class BookController {
     private PublisherService publisherService;
     @Autowired
     private AuthorService authorService;
+
     @RequestMapping("/create")
     public String showNewBookForm(Model model){
         Book book=new Book();
@@ -37,11 +38,13 @@ public class BookController {
 
         return "create_book";
     }
+
     @RequestMapping(value = "/create_confirm",method = RequestMethod.POST)
     public String createBook(@ModelAttribute("book") Book book){
         bookService.save(book);
         return "redirect:/";
     }
+
     @RequestMapping("/edit/{id}")
     public ModelAndView showBookEditForm(@PathVariable(name = "id") long id){
         List<Author> authors=authorService.listAll();
@@ -53,17 +56,20 @@ public class BookController {
         mav.addObject("publishers",publishers);
         return mav;
     }
+
     @RequestMapping("/edit_confirm")
     public String edit_book(@ModelAttribute(value = "book") Book book){
         bookService.save(book);
         return "redirect:/";
     }
+
     @RequestMapping("/details/{id}")
     public ModelAndView showDetailsPage(@PathVariable(name = "id") long id){
         ModelAndView mav=new ModelAndView("details");
         mav.addObject("book",bookService.get(id));
         return mav;
     }
+
     @RequestMapping("/delete/{id}")
     public String deleteBook(@PathVariable(name = "id") long id){
         bookService.delete(id);

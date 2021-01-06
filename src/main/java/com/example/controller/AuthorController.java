@@ -23,6 +23,7 @@ public class AuthorController {
         model.addAttribute("author",author);
         return "create_author";
     }
+
     @RequestMapping("/create_confirm")
     public String createAuthor(@ModelAttribute("author") Author author){
         authorService.save(author);

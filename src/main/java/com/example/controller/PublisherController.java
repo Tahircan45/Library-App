@@ -23,6 +23,7 @@ public class PublisherController {
         model.addAttribute("publisher",publisher);
         return "create_publisher";
     }
+
     @RequestMapping("/create_confirm")
     public String createPublisher(@ModelAttribute("publisher") Publisher publisher){
         publisherService.save(publisher);

@@ -14,19 +14,15 @@ import java.util.List;
 @Controller
 public class HomeController {
     @Autowired
-    private UserService userService;
-    @Autowired
     private BookService bookService;
-    @Autowired
-    private PublisherService publisherService;
-    @Autowired
-    private AuthorService authorService;
+
     @RequestMapping("/")
     public String index(Model model){
         List<Book> bookList=bookService.listAllBooks();
         model.addAttribute("bookList",bookList);
         return "index";
     }
+
     @RequestMapping("/search")
     public String search(Model model, @Param("keyword")  String keyword ){
         List<Book> bookList=bookService.listAllBooks(keyword);
@@ -34,6 +30,7 @@ public class HomeController {
         model.addAttribute("keyword",keyword);
         return "index";
     }
+
     @GetMapping("/403")
     public String error403(){
         return "403";
