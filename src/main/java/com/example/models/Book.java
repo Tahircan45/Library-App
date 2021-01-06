@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Book {
+
     @Id
     @GeneratedValue( strategy= GenerationType.IDENTITY )
     private Long id;
@@ -28,6 +29,7 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Author author;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Publisher publisher;
 

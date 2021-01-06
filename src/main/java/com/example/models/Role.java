@@ -11,10 +11,12 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Role {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String name;
 
 
