@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: html_head">
+</head>
+
+<body>
+<div class="container my-2">
+    <div th:replace="fragments :: login_status"></div>
+    <h3> Edit Book</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/user/edit_confirm}" th:object="${user}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">User Name</label>
+                            <input type="text" th:field="*{username}" class="form-control"
+                                   id="username" placeholder="User Name" />
+                        </div>
+                        <div class="form-group col-md-8" >
+                            <label for="name" class="col-form-label">Enabled</label>
+                            <input type="checkbox" th:field="*{enabled}" class="form-control"
+                                   id="enabled" placeholder="Enabled" />
+                        </div>
+                        <input type="hidden" id="password" th:field="*{password}">
+                        <div class="form-group col-md-8">
+                            <div class="row align-items-end no-gutters">
+                                <div class="col-sm-10">
+                                    <label for="name" class="col-form-label">Role</label>
+                                    <select class="form-control" th:field="*{roles}">
+                                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
