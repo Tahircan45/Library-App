@@ -4,6 +4,7 @@ import com.example.models.*;
 import com.example.service.RoleService;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,6 +74,12 @@ public class UserController {
     public String deleteUser(@PathVariable(name="id") int id){
         userService.delete(id);
         return "redirect:/user/list";
+    }
+    @RequestMapping("/search")
+    public String search(Model model ,@Param("keyword")  String keyword){
+        Iterable<User> users=userService.listAll(keyword);
+        model.addAttribute("users",users);
+        return "user_role";
     }
 
 }

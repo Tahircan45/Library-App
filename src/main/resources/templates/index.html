@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-body">
             <div th:replace="fragments :: top_button_bar"></div>
-            <div th:replace="fragments :: search_bar"></div>
+            <div th:replace="fragments :: search_bar('/search')"></div>
 
             <div th:switch="${bookList}" class="container">
                 <div class="row">
