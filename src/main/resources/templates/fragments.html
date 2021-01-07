@@ -37,9 +37,9 @@
 
 
 
-    <div th:fragment="search_bar(path)">
+    <div th:fragment="search_bar">
         <p>
-        <form th:action="${path}" align="center">
+        <form th:action="@{/search}" align="center">
             <div class="input-group md-form form-sm form-2 pl-0">
                 <input type="text" th:value="${keyword}"  placeholder="Search..." required name="keyword" class="form-control my-0 py-1 red-border" aria-label="Search" >
                 <div class="input-group-append">

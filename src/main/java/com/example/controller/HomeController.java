@@ -25,7 +25,7 @@ public class HomeController {
     }
 
     @RequestMapping("/search")
-    public String search(Model model, @Param("keyword")  String keyword){
+    public String search(Model model, @Param("keyword")  String keyword ){
         List<Book> bookList=bookService.listAllBooks(keyword);
         model.addAttribute("bookList",bookList);
         model.addAttribute("keyword",keyword);

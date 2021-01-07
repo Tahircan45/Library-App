@@ -11,10 +11,6 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public Iterable<User> listAll(String username){
-        return repository.findAll(username);
-    }
-
     public Iterable<User> listAll(){
         return repository.findAll();
     }
