@@ -55,7 +55,7 @@
                                     </td>
                                     <td>
                                         <div th:if="${#authentication.principal.username != user.username}">
-                                            <a th:href="@{/user/delete/{id}(id=${user.id})}" class="btn btn-danger">
+                                            <a href="javascript:void(0)" th:onclick="'javascript:deleteUser(' + ${user.id} + ');'"  class="btn btn-danger">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </div>
@@ -78,6 +78,12 @@
 <script type="text/javascript">
      function clearFilter(){
          window.location='/user/list';
+     }
+     function deleteUser(id){
+        let conf=confirm('Do you want delete user ?');
+        if(conf){
+            window.location='/user/delete/'+id;
+        }
      }
  </script>
 </body>
