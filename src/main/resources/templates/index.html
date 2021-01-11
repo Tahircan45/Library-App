@@ -44,7 +44,7 @@
                                          </a>
                                      </td>
                                      <td sec:authorize="hasAnyAuthority('ADMIN','MANAGER')">
-                                         <a th:href="@{/book/edit/{id}(id=${book.id})}" class="btn btn-info">
+                                         <a th:href="@{/book/formpage/{id}(id=${book.id})}" class="btn btn-info">
                                              <i class="fas fa-edit"></i>
                                          </a>
                                      </td>

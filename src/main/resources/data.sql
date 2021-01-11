@@ -2,7 +2,7 @@ INSERT INTO
 	author (name,description)
 VALUES
   	('Frank Herbert','1920 Amerika'),
-  	('Yuah Noah Hararit','1976 İsrail'),
+  	('Yuval Noah Harari','1976 İsrail'),
   	('George Orwell','1903 Hindistan'),
   	('Emrah Safa GÜRKAN','1981 Türkiye');
 

@@ -23,7 +23,7 @@
 
     <div th:fragment="top_button_bar">
         <p class="my-4" align="center">
-            <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" href="/book/create" class="btn btn-success">
+            <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')" href="/book/formpage" class="btn btn-success">
                 <i class="fas fa-book-open mr-2"></i></i>New Book</a>
             <a sec:authorize="hasAnyAuthority('ADMIN','MANAGER')"href="/author/create" class="btn btn-success">
                 <i class="fas fa-user-plus mr-2"></i>New Author</a>

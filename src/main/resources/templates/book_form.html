@@ -7,11 +7,11 @@
 <body>
 <div class="container my-2">
     <div th:replace="fragments :: login_status"></div>
-    <h3> Edit Book</h3>
+    <h3> Create New Book</h3>
     <div class="card">
         <div class="card-body">
             <div class="col-md-10">
-                <form action="#" th:action="@{/book/edit_confirm}" th:object="${book}" method="post">
+                <form action="#" th:action="@{/book/formpage_confirm}" th:object="${book}" method="post">
                     <div class="row">
                         <div class="form-group col-md-8">
                             <label for="name" class="col-form-label">Name</label>
@@ -50,7 +50,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm d-flex justify-content-end">
-                                    <a href="/new_author" class="btn btn-primary">
+                                    <a href="/author/create" class="btn btn-primary">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </div>
@@ -66,7 +66,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm d-flex justify-content-end">
-                                    <a href="/new_publisher" class="btn btn-primary">
+                                    <a href="/publisher/create" class="btn btn-primary">
                                         <i class="fas fa-plus"></i>
                                     </a>
                                 </div>

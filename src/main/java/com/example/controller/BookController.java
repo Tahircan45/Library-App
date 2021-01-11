@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class BookController {
     @Autowired
     private AuthorService authorService;
 
-    @RequestMapping("/create")
+    @RequestMapping("/formpage")
     public String showNewBookForm(Model model){
         Book book=new Book();
         List<Author> authors=authorService.listAll();
@@ -37,20 +36,13 @@ public class BookController {
         model.addAttribute("authors",authors);
         model.addAttribute("publishers",publishers);
 
-        return "create_book";
+        return "book_form";
     }
-
-    @RequestMapping(value = "/create_confirm",method = RequestMethod.POST)
-    public String createBook(@ModelAttribute("book") Book book){
-        bookService.save(book);
-        return "redirect:/";
-    }
-
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/formpage/{id}")
     public ModelAndView showBookEditForm(@PathVariable(name = "id") long id){
         List<Author> authors=authorService.listAll();
         List<Publisher> publishers=publisherService.listAll();
-        ModelAndView mav=new ModelAndView("edit_book");
+        ModelAndView mav=new ModelAndView("book_form");
         Book book=bookService.get(id);
         mav.addObject("book",book);
         mav.addObject("authors",authors);
@@ -58,7 +50,7 @@ public class BookController {
         return mav;
     }
 
-    @RequestMapping("/edit_confirm")
+    @RequestMapping("/formpage_confirm")
     public String edit_book(@ModelAttribute(value = "book") Book book){
         bookService.save(book);
         return "redirect:/";
