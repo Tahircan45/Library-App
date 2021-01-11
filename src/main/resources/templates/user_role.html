@@ -28,7 +28,7 @@
                                 <th>User Name</th>
                                 <th>Role</th>
                                 <th>Enabled</th>
-                                <th>Details</th>
+                                <!--/* <th>Details</th> */-->
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -41,11 +41,13 @@
                                         <span th:text="${role.name}"></span>
                                     </td>
                                     <td th:text="${user.enabled}">enabled</td>
+                                <!--/*
                                     <td>
                                         <a th:href="@{/user/details/{id}(id=${user.id})}" class="btn btn-info">
                                             <i class="fas fa-info-circle"></i>
                                         </a>
                                     </td>
+                                */-->
                                     <td>
                                         <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info">
                                             <i class="fas fa-edit"></i>
