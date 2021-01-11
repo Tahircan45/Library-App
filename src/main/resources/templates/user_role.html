@@ -35,26 +35,29 @@
                             </thead>
                             <tbody>
                             <tr th:each="user:${users}">
-                                <td th:text="${user.username}">Name</td>
-                                <td th:each="role:${user.roles}">
-                                    <span th:text="${role.name}"></span>
-                                </td>
-                                <td th:text="${user.enabled}">enabled</td>
-                                <td>
-                                    <a th:href="@{/user/details/{id}(id=${user.id})}" class="btn btn-info">
-                                        <i class="fas fa-info-circle"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a th:href="@{/user/delete/{id}(id=${user.id})}" class="btn btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
+
+                                    <td th:text="${user.username}">Name</td>
+                                    <td th:each="role:${user.roles}">
+                                        <span th:text="${role.name}"></span>
+                                    </td>
+                                    <td th:text="${user.enabled}">enabled</td>
+                                    <td>
+                                        <a th:href="@{/user/details/{id}(id=${user.id})}" class="btn btn-info">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div th:if="${#authentication.principal.username != user.username}">
+                                            <a th:href="@{/user/delete/{id}(id=${user.id})}" class="btn btn-danger">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        </div>
+                                    </td>
                             </tr>
                             </tbody>
                         </table>

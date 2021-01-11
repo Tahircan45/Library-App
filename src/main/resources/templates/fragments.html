@@ -14,7 +14,6 @@
 <body>
     <div th:fragment="login_status" sec:authorize="isAuthenticated()" align="right">
         Welcome&nbsp;<span sec:authentication="name"></span>
-    &nbsp;
         <span sec:authentication="principal.authorities"></span>
         <form th:action="@{/logout}" method post>
             <input type="submit" class="btn btn-danger  my-3" value="Logout">
