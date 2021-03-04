@@ -49,10 +49,10 @@
                                          </a>
                                      </td>
                                      <td sec:authorize="hasAnyAuthority('MANAGER')">
-                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" th:attrappend="data-target=${book.id}">
                                              <i class="fas fa-trash-alt"></i>
                                          </button>
-                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle-${book.id}" aria-hidden="true">
+                                         <div class="modal fade" id="exampleModalCenter"  th:attrappend="id=${book.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"  aria-hidden="true">
                                              <div class="modal-dialog modal-dialog-centered" role="document">
                                                  <div class="modal-content">
                                                      <div class="modal-header">
