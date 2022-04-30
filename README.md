@@ -1,6 +1,6 @@
 # Library-App
 Canlı Uygulama Linki: https://libraryapp556.herokuapp.com/
-
+(Yavaş açılabilir.)
 **Uygulamanın Kurulması ve Çalıştırılması**
 
 Uygulama Github üzerinden bilgisayarımıza indirdikten sonra Maven ile bir "*executable jar*" dosyası oluşturup bu dosyayı çalıştırabiliriz. Bunun için öncelikle terminal ile proje klasörünün içindeyken `mvn package` komutunu çalıştırıyoruz. Daha sonra oluşan `target` klasörüne girip `java -jar Library-App-0.0.1-SNAPSHOT.jar` komutu ile jar dosyamızı çalıştırabiliriz. Uygulamaya bağlanmak için `http://localhost:8080/` adresini kullanabiliriz.Sisteme giriş için gerekli kullanıcı adı ve şifre bilgilere aşağıdaki **Yetkilendirme ve Kimliklendirme** kısmında verilmiştir.
